@@ -290,12 +290,15 @@
             text-align: center;
         }
 
-        .integration-content {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 20px;
-            align-items: center;
+        .integration-wrapper {
             margin-top: 30px;
+        }
+
+        .integration-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
 
         .integration-item {
@@ -304,12 +307,26 @@
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .integration-plus-wrapper {
+            flex-shrink: 0;
         }
 
         .integration-plus {
             font-size: 2.5rem;
             color: #3d7a77;
             font-weight: 700;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
         /* CTA Section */
@@ -383,11 +400,19 @@
             }
 
             .integration-content {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .integration-item {
+                max-width: 100%;
             }
 
             .integration-plus {
                 transform: rotate(90deg);
+                width: 50px;
+                height: 50px;
+                font-size: 2rem;
             }
 
             .flow-branch {
@@ -641,7 +666,7 @@
         <div class="container">
             <h2>Re:Al P-스트레칭<br>건강한 변화를 시작하세요</h2>
             <p>전문가의 체계적인 가이드로 안전하고<br>효과적인 운동을 경험하실 수 있습니다.</p>
-            <p>대표: 박준규 (DC, PT) <a href="https://blog.naver.com/allenjoy/120205433765">프로필 보기[클릭] </p>
+            <p>대표: 박준규 (DC, PT) <a href="https://blog.naver.com/allenjoy/120205433765">프로필 보기[클릭]</a></p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdKpiMxqfnn6cspbj5LmIy_QKwl9lZbk3CYnDT-umroi7TB_g/viewform?usp=dialog" class="cta-button">P-스트레칭 신청하기</a>
         </div>
     </section>
@@ -656,8 +681,3 @@
 
 </body>
 </html>
-
-
-
-
-
