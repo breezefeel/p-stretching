@@ -505,8 +505,17 @@
                 offset: 100
             });
             
-            // 페이지 로드 시, Page 1을 강제 활성화하고 스타일을 업데이트합니다.
-            switchPage('page1'); 
+            // ⭐️ 수정된 로직: URL에서 'page' 파라미터 값을 읽어옵니다.
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetPageId = urlParams.get('page'); // 'page1', 'page2', 'page3' 중 하나를 기대합니다.
+            
+            // URL 파라미터가 유효한 페이지 ID이고 해당 ID를 가진 요소가 있으면 해당 페이지로 이동
+            if (targetPageId && document.getElementById(targetPageId)) {
+                switchPage(targetPageId);
+            } else {
+                // 파라미터가 없거나 유효하지 않으면 기본값인 'page1'로 이동
+                switchPage('page1'); 
+            }
         });
 
         // 2. 페이지 전환 함수
@@ -534,56 +543,41 @@
             }, 100);
         }
 
-        // 3. 네비게이션 버튼 스타일 업데이트 함수 (수정 완료)
+        // 3. 네비게이션 버튼 스타일 업데이트 함수 (3개 페이지 지원)
         function updateNavStyles(activePageId) {
-            // 데스크탑 버튼 요소
-            const btn1 = document.getElementById('nav-page1'); // 프로그램 소개
-            const btn2 = document.getElementById('nav-page2'); // 셀프 자세 평가
-            
-            // 모바일 버튼 요소
-            const mBtn1 = document.getElementById('mob-nav-page1');
-            const mBtn2 = document.getElementById('mob-nav-page2');
+            const navElements = [
+                { id: 'page1', desktop: document.getElementById('nav-page1'), mobile: document.getElementById('mob-nav-page1') },
+                { id: 'page2', desktop: document.getElementById('nav-page2'), mobile: document.getElementById('mob-nav-page2') },
+                { id: 'page3', desktop: document.getElementById('nav-page3'), mobile: document.getElementById('mob-nav-page3') }
+            ];
 
-            // 스타일 초기화 및 설정
-            if (activePageId === 'page1') {
-                // [Page 1 활성화]
-                // 데스크탑 (Page 1 활성화, Page 2 비활성화)
-                if(btn1 && btn2) {
-                    // Page 1 활성화: Blue background
-                    btn1.classList.add('bg-[#3498DB]', 'text-white', 'shadow-md');
-                    btn1.classList.remove('text-gray-500', 'hover:bg-gray-100');
-                    
-                    // Page 2 비활성화: Gray/White background 
-                    btn2.classList.remove('bg-[#3498DB]', 'text-white', 'shadow-md'); 
-                    btn2.classList.add('text-gray-500', 'hover:bg-gray-100');
+            navElements.forEach(item => {
+                const isActive = item.id === activePageId;
+                const activeClasses = ['bg-[#3498DB]', 'text-white', 'shadow-md'];
+                const inactiveClasses = ['text-gray-500', 'hover:bg-gray-100'];
+                const mActiveClasses = ['text-[#3498DB]', 'border-b-2', 'border-[#3498DB]', 'bg-blue-50'];
+                const mInactiveClasses = ['text-gray-400', 'border-transparent'];
+
+                if (item.desktop) {
+                    if (isActive) {
+                        item.desktop.classList.add(...activeClasses);
+                        item.desktop.classList.remove(...inactiveClasses);
+                    } else {
+                        item.desktop.classList.add(...inactiveClasses);
+                        item.desktop.classList.remove(...activeClasses);
+                    }
                 }
-                // 모바일
-                if(mBtn1 && mBtn2) {
-                    mBtn1.classList.add('text-[#3498DB]', 'border-b-2', 'border-[#3498DB]', 'bg-blue-50');
-                    mBtn1.classList.remove('text-gray-400', 'border-transparent');
-                    mBtn2.classList.remove('text-brand', 'border-brand', 'bg-blue-50', 'border-b-2');
-                    mBtn2.classList.add('text-gray-400', 'border-transparent');
+
+                if (item.mobile) {
+                    if (isActive) {
+                        item.mobile.classList.add(...mActiveClasses);
+                        item.mobile.classList.remove(...mInactiveClasses);
+                    } else {
+                        item.mobile.classList.add(...mInactiveClasses);
+                        item.mobile.classList.remove(...mActiveClasses);
+                    }
                 }
-            } else {
-                // [Page 2 활성화]
-                // 데스크탑 (Page 2 활성화, Page 1 비활성화)
-                if(btn1 && btn2) {
-                    // Page 2 활성화: Blue background (bg-[#3498DB]로 통일)
-                    btn2.classList.add('bg-[#3498DB]', 'text-white', 'shadow-md'); 
-                    btn2.classList.remove('text-gray-500', 'hover:bg-gray-100');
-                    
-                    // Page 1 비활성화: Gray/White background
-                    btn1.classList.remove('bg-[#3498DB]', 'text-white', 'shadow-md');
-                    btn1.classList.add('text-gray-500', 'hover:bg-gray-100');
-                }
-                // 모바일
-                if(mBtn1 && mBtn2) {
-                    mBtn2.classList.add('text-brand', 'border-b-2', 'border-brand', 'bg-blue-50');
-                    mBtn2.classList.remove('text-gray-400', 'border-transparent');
-                    mBtn1.classList.remove('text-[#3498DB]', 'border-[#3498DB]', 'bg-blue-50', 'border-b-2');
-                    mBtn1.classList.add('text-gray-400', 'border-transparent');
-                }
-            }
+            });
         }
     </script>
 </body>
