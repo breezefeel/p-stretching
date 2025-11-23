@@ -72,20 +72,20 @@
             </div>
             
             <div class="hidden md:flex space-x-4 font-medium text-gray-600">
-                <button id="nav-page1" onclick="switchPage('page1')" class="px-4 py-2 rounded-full font-bold transition-all text-white bg-[#3498DB] shadow-md">
+                <button id="nav-page1" onclick="switchPage('page1')" class="px-4 py-2 rounded-full font-bold transition-all text-gray-500 hover:bg-gray-100">
                     프로그램 소개
                 </button>
-                <button id="nav-page2" onclick="switchPage('page2')" class="px-4 py-2 rounded-full font-bold transition-all text-white bg-[#3498DB] shadow-md">
-                    자가 자세 평가
+                <button id="nav-page2" onclick="switchPage('page2')" class="px-4 py-2 rounded-full font-bold transition-all text-gray-500 hover:bg-gray-100">
+                    셀프 자세 평가
                 </button>
             </div>
             
-            <a href="http://pf.kakao.com/_nVSxdn/chat" target="_blank" class="hidden md:inline-block bg-[#3498DB] text-white px-6 py-2 rounded-full hover:bg-[#287BBF] transition shadow-lg">상담 신청</a>
+            <a href="http://pf.kakao.com/_nVSxdn/chat" target="_blank" class="hidden md:inline-block bg-[#3498DB] text-white px-6 py-2 rounded-full hover:bg-[#287BBF] transition shadow-lg">문의 하기</a>
         </div>
         
         <div class="md:hidden grid grid-cols-2 border-t border-gray-100 bg-white">
-            <button id="mob-nav-page1" onclick="switchPage('page1')" class="py-3 text-sm font-bold text-[#3498DB] border-b-2 border-[#3498DB] bg-blue-50 transition-all">프로그램 소개</button>
-            <button id="mob-nav-page2" onclick="switchPage('page2')" class="py-3 text-sm font-bold text-[#3498DB] border-b-2 border-[#3498DB] bg-blue-50 transition-all">자가 자세 평가</button>
+            <button id="mob-nav-page1" onclick="switchPage('page1')" class="py-3 text-sm font-bold text-gray-400 transition-all">프로그램 소개</button>
+            <button id="mob-nav-page2" onclick="switchPage('page2')" class="py-3 text-sm font-bold text-gray-400 transition-all">셀프 자세 평가</button>
         </div>
     </nav>
 
@@ -106,7 +106,7 @@
                     진짜 제대로요. 리:얼 P-스트레칭
                 </p>
                 <div class="flex justify-center gap-4">
-                    <button id="nav-page2" onclick="switchPage('page2')" class="bg-white text-[#2C3E50] px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-lg">셀프 자세 평가하기</a>
+                    <button id="mob-nav-page2" onclick="switchPage('page2')" class="bg-white text-[#2C3E50] px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-lg">내 몸 상태, 어떨까?</a>
                 </div>
             </div>
         </header>
@@ -146,49 +146,7 @@
                 </div>
             </div>
         </section>
-
-        <section id="features" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-4">Re:Al P-스트레칭 특징</h2>
-                    <p class="text-gray-600">차별화된 시스템으로 더 나은 변화를 만듭니다.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-gray-50 rounded-2xl p-8 border-l-4 border-[#3498DB]" data-aos="fade-right">
-                        <h4 class="text-xl font-bold text-[#2C3E50] mb-4 flex items-center gap-2"><i class="fa-solid fa-chart-simple text-[#3498DB]"></i> 단계별 시스템</h4>
-                        <p class="text-gray-600 mb-4">개인의 통증과 유연성 정도에 맞춰 안전하게 단계를 조절합니다.</p>
-                        <ul class="space-y-3 text-gray-700">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 기본 P-스트레칭 진행</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 신체+얼굴 통합 운동</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 근막 경선별 맞춤 운동</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 생활습관 교정 단계</li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-50 rounded-2xl p-8 border-l-4 border-[#3498DB]" data-aos="fade-up">
-                        <h4 class="text-xl font-bold text-[#2C3E50] mb-4 flex items-center gap-2"><i class="fa-solid fa-rotate text-[#3498DB]"></i> 실시간 분기 시스템</h4>
-                        <p class="text-gray-600 mb-4">매 세션 통증과 가동범위를 평가하여 최적의 운동을 제공합니다.</p>
-                        <ul class="space-y-3 text-gray-700">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 통증 여부 평가</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 가동범위(ROM) 체크</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 즉각적인 프로그램 조정</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 안전한 맞춤형 운동</li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-50 rounded-2xl p-8 border-l-4 border-[#3498DB]" data-aos="fade-left">
-                        <h4 class="text-xl font-bold text-[#2C3E50] mb-4 flex items-center gap-2"><i class="fa-solid fa-star text-[#3498DB]"></i> 통합 케어 효과</h4>
-                        <p class="text-gray-600 mb-4">신체와 얼굴의 균형을 동시에 개선하여 전인적인 건강을 추구합니다.</p>
-                        <ul class="space-y-3 text-gray-700">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 하나의 동작, 복합 효과</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> Body + Face 동시 관리</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 전신 밸런스 개선</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 셀프 관리법 코칭</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        
         <section id="sequence" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16" data-aos="fade-up">
@@ -340,6 +298,48 @@
             </div>
         </section>
 
+        <section id="features" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-4">Re:Al P-스트레칭 특징</h2>
+                    <p class="text-gray-600">차별화된 시스템으로 더 나은 변화를 만듭니다.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 rounded-2xl p-8 border-l-4 border-[#3498DB]" data-aos="fade-right">
+                        <h4 class="text-xl font-bold text-[#2C3E50] mb-4 flex items-center gap-2"><i class="fa-solid fa-chart-simple text-[#3498DB]"></i> 단계별 시스템</h4>
+                        <p class="text-gray-600 mb-4">개인의 통증과 유연성 정도에 맞춰 안전하게 단계를 조절합니다.</p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 기본 P-스트레칭 진행</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 신체+얼굴 통합 운동</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 근막 경선별 맞춤 운동</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 생활습관 교정 단계</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 rounded-2xl p-8 border-l-4 border-[#3498DB]" data-aos="fade-up">
+                        <h4 class="text-xl font-bold text-[#2C3E50] mb-4 flex items-center gap-2"><i class="fa-solid fa-rotate text-[#3498DB]"></i> 실시간 분기 시스템</h4>
+                        <p class="text-gray-600 mb-4">매 세션 통증과 가동범위를 평가하여 최적의 운동을 제공합니다.</p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 통증 여부 평가</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 가동범위(ROM) 체크</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 즉각적인 프로그램 조정</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 안전한 맞춤형 운동</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 rounded-2xl p-8 border-l-4 border-[#3498DB]" data-aos="fade-left">
+                        <h4 class="text-xl font-bold text-[#2C3E50] mb-4 flex items-center gap-2"><i class="fa-solid fa-star text-[#3498DB]"></i> 통합 케어 효과</h4>
+                        <p class="text-gray-600 mb-4">신체와 얼굴의 균형을 동시에 개선하여 전인적인 건강을 추구합니다.</p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 하나의 동작, 복합 효과</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> Body + Face 동시 관리</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 전신 밸런스 개선</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 셀프 관리법 코칭</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="py-20 bg-gradient-to-br from-[#2C3E50] to-[#3498DB] text-white text-center">
             <div class="container mx-auto px-6">
                 <h2 class="text-4xl font-bold mb-6" data-aos="fade-up">Re:Al P-스트레칭<br>건강한 변화를 시작하세요</h2>
@@ -351,8 +351,8 @@
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdKpiMxqfnn6cspbj5LmIy_QKwl9lZbk3CYnDT-umroi7TB_g/viewform?usp=dialog" target="_blank" class="bg-white text-[#2C3E50] px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg inline-flex items-center justify-center gap-2">
                         <span>P-스트레칭 신청하기</span> <i class="fa-solid fa-chevron-right text-sm"></i>
                     </a>
-                    <a href="https://breezefeel.github.io/healingtree.github.io/" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition inline-flex items-center justify-center gap-2">
-                        <span>힐링트리 홈페이지</span> <i class="fa-solid fa-external-link-alt text-sm"></i>
+                    <a href="http://pf.kakao.com/_nVSxdn/chat" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition inline-flex items-center justify-center gap-2">
+                        <span>문의 하기</span> <i class="fa-solid fa-external-link-alt text-sm"></i>
                     </a>
                 </div>
             </div>
@@ -439,31 +439,41 @@
                 <div class="p-2">
                     <label class="check-item cursor-pointer">
                         <input type="checkbox">
-                        <span class="item-content text-gray-700 font-medium">[어깨 가동성] 등 뒤로 깍지 끼기: 좌우 손의 위치 차이가 <b>주먹 하나 이상</b> 난다.</span>
-                        <img src="https://image.pollinations.ai/prompt/simple,drawing,a,person,doing,apley's,scratch,test,shoulder,mobility,pale,blue,and,white,tones" alt="어깨 가동성 테스트 일러스트" class="item-image">
+                        <span class="item-content text-gray-700 font-medium">[허리/햄스트링 유연성] 바르게 서서 앞으로 숙였을 때 <b>손바닥이 바닥에 닿지 않는다</b>.</span>
+                        <img src="https://image.pollinations.ai/prompt/simple,drawing,a,person,touching,toes,flexibility,test,pale,blue,and,white,tones" alt="앞으로 숙이기 일러스트" class="item-image">
                     </label>
                     <label class="check-item cursor-pointer">
                         <input type="checkbox">
-                        <span class="item-content text-gray-700 font-medium">[고관절 유연성] 무릎이 가슴 쪽으로 <b>심하게 뜨거나</b> 통증이 있다.</span>
-                        <img src="https://image.pollinations.ai/prompt/simple,drawing,a,person,doing,figure-4,stretch,hip,mobility,pale,blue,and,white,tones" alt="고관절 유연성 테스트 일러스트" class="item-image">
+                        <span class="item-content text-gray-700 font-medium">[어깨 가동성] 등 뒤로 손 닿기 테스트 시, 좌우 손의 위치 차이가 <b>주먹 하나 이상</b> 난다.</span>
+                        <img src="https://image.pollinations.ai/prompt/simple,drawing,a,person,doing,apley's,scratch,test,shoulder,mobility,pale,blue,and,white,tones" alt="어깨 손 닿기 테스트 일러스트" class="item-image">
                     </label>
                     <label class="check-item cursor-pointer">
                         <input type="checkbox">
-                        <span class="item-content text-gray-700">[흉추 유연성] 벽 만세 자세: <b>허리가 뜨지 않고</b> 팔을 머리 위로 완전히 올리기 어렵다.</span>
-                        <img src="https://image.pollinations.ai/prompt/simple,drawing,a,person,doing,wall,angel,thoracic,mobility,pale,blue,and,white,tones" alt="흉추 유연성 테스트 일러스트" class="item-image">
+                        <span class="item-content text-gray-700 font-medium">[허리 신전 가동성] 양 손을 허리에 짚은 후 몸을 뒤로 젖혔을 때 <b>통증이나 뻣뻣함</b>이 심하게 느껴진다.</span>
+                        <img src="https://image.pollinations.ai/prompt/simple,drawing,a,person,bending,backward,with,back,pain,lumbar,extension,test,pale,blue,and,white,tones" alt="허리 뒤로 젖히기 일러스트" class="item-image">
+                    </label>
+                    <label class="check-item cursor-pointer">
+                        <input type="checkbox">
+                        <span class="item-content text-gray-700 font-medium">[고관절 유연성] 의자에 앉아 다리를 무릎 위에 올렸을 때, <b>무릎의 들림 정도가 좌우 크게 차이</b>난다.</span>
+                        <img src="https://image.pollinations.ai/prompt/simple,drawing,a,person,doing,figure-4,stretch,hip,mobility,while,sitting,pale,blue,and,white,tones" alt="고관절 Figure-4 일러스트" class="item-image">
+                    </label>
+                    <label class="check-item cursor-pointer">
+                        <input type="checkbox">
+                        <span class="item-content text-gray-700 font-medium">[발목 무릎 가동성] 천천히 끝까지 쪼그려 앉을 때 <b>발뒤꿈치가 바닥에서 떨어지거나</b> 균형을 잃는다.</span>
+                        <img src="https://image.pollinations.ai/prompt/simple,drawing,a,person,doing,deep,squat,with,heels,lifting,off,the,floor,pale,blue,and,white,tones" alt="딥 스쿼트 일러스트" class="item-image">
                     </label>
                 </div>
             </section>
 
             <div class="text-center p-8 bg-brand rounded-3xl shadow-xl text-white" data-aos="zoom-in">
                 <h3 class="text-2xl font-bold mb-2">내 몸을 위한 확실한 선택</h3>
-                <p class="mb-6 text-blue-100">체크 리스트 결과가 고민되시나요?<br> 전문가와 상담하세요.</p>
+                <p class="mb-6 text-blue-100">체크 리스트 결과가 고민되시나요? 전문가와 상담하세요.</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <button onclick="alert('제출 기능은 준비 중입니다. 상담하기 버튼을 이용해주세요.')" class="bg-white text-brand font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition shadow-md">
                         결과 제출하고 혜택 받기
                     </button>
-                    <a href="http://pf.kakao.com/_nVSxdn/chat" target="_blank" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-800 transition shadow-md">
-                        상담 신청하기
+                    <button id="mob-nav-page1" onclick="switchPage('page1')" target="_blank" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-800 transition shadow-md">
+                        리:얼 P-스트레칭 살펴보기
                     </a>
                 </div>
             </div>
@@ -473,7 +483,7 @@
 
     <footer class="bg-[#1D2C3A] text-white py-10 text-center border-t border-white/10">
         <div class="container mx-auto px-6">
-            <p class="font-bold text-lg mb-2">&copy; 2025 힐링트리</p>
+            <p class="font-bold text-lg mb-2">&copy; 2020 힐링트리</p>
             <p class="opacity-70 text-sm mb-4">Health & Wellness Total Solution.</p>
             <div class="flex justify-center gap-4 text-sm opacity-60">
                 <span>Re:Al P-스트레칭</span>
@@ -487,13 +497,16 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // 1. AOS 애니메이션 초기화 (페이지 로드 시 실행)
+        // 1. AOS 애니메이션 초기화 + 페이지 초기 설정 강제
         document.addEventListener('DOMContentLoaded', function() {
             AOS.init({
                 duration: 800,
                 once: true,
                 offset: 100
             });
+            
+            // 페이지 로드 시, Page 1을 강제 활성화하고 스타일을 업데이트합니다.
+            switchPage('page1'); 
         });
 
         // 2. 페이지 전환 함수
@@ -521,11 +534,11 @@
             }, 100);
         }
 
-        // 3. 네비게이션 버튼 스타일 업데이트 함수
+        // 3. 네비게이션 버튼 스타일 업데이트 함수 (수정 완료)
         function updateNavStyles(activePageId) {
             // 데스크탑 버튼 요소
-            const btn1 = document.getElementById('nav-page1');
-            const btn2 = document.getElementById('nav-page2');
+            const btn1 = document.getElementById('nav-page1'); // 프로그램 소개
+            const btn2 = document.getElementById('nav-page2'); // 셀프 자세 평가
             
             // 모바일 버튼 요소
             const mBtn1 = document.getElementById('mob-nav-page1');
@@ -534,34 +547,40 @@
             // 스타일 초기화 및 설정
             if (activePageId === 'page1') {
                 // [Page 1 활성화]
-                // 데스크탑
+                // 데스크탑 (Page 1 활성화, Page 2 비활성화)
                 if(btn1 && btn2) {
+                    // Page 1 활성화: Blue background
                     btn1.classList.add('bg-[#3498DB]', 'text-white', 'shadow-md');
                     btn1.classList.remove('text-gray-500', 'hover:bg-gray-100');
-                    btn2.classList.remove('bg-brand', 'text-white', 'shadow-md');
+                    
+                    // Page 2 비활성화: Gray/White background 
+                    btn2.classList.remove('bg-[#3498DB]', 'text-white', 'shadow-md'); 
                     btn2.classList.add('text-gray-500', 'hover:bg-gray-100');
                 }
                 // 모바일
                 if(mBtn1 && mBtn2) {
-                    mBtn1.classList.add('text-[#3498DB]', 'border-[#3498DB]', 'bg-blue-50');
+                    mBtn1.classList.add('text-[#3498DB]', 'border-b-2', 'border-[#3498DB]', 'bg-blue-50');
                     mBtn1.classList.remove('text-gray-400', 'border-transparent');
-                    mBtn2.classList.remove('text-brand', 'border-brand', 'bg-blue-50');
+                    mBtn2.classList.remove('text-brand', 'border-brand', 'bg-blue-50', 'border-b-2');
                     mBtn2.classList.add('text-gray-400', 'border-transparent');
                 }
             } else {
                 // [Page 2 활성화]
-                // 데스크탑
+                // 데스크탑 (Page 2 활성화, Page 1 비활성화)
                 if(btn1 && btn2) {
-                    btn2.classList.add('bg-brand', 'text-white', 'shadow-md');
+                    // Page 2 활성화: Blue background (bg-[#3498DB]로 통일)
+                    btn2.classList.add('bg-[#3498DB]', 'text-white', 'shadow-md'); 
                     btn2.classList.remove('text-gray-500', 'hover:bg-gray-100');
+                    
+                    // Page 1 비활성화: Gray/White background
                     btn1.classList.remove('bg-[#3498DB]', 'text-white', 'shadow-md');
                     btn1.classList.add('text-gray-500', 'hover:bg-gray-100');
                 }
                 // 모바일
                 if(mBtn1 && mBtn2) {
-                    mBtn2.classList.add('text-brand', 'border-brand', 'bg-blue-50');
+                    mBtn2.classList.add('text-brand', 'border-b-2', 'border-brand', 'bg-blue-50');
                     mBtn2.classList.remove('text-gray-400', 'border-transparent');
-                    mBtn1.classList.remove('text-[#3498DB]', 'border-[#3498DB]', 'bg-blue-50');
+                    mBtn1.classList.remove('text-[#3498DB]', 'border-[#3498DB]', 'bg-blue-50', 'border-b-2');
                     mBtn1.classList.add('text-gray-400', 'border-transparent');
                 }
             }
@@ -569,5 +588,3 @@
     </script>
 </body>
 </html>
-
-
