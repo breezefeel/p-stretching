@@ -78,9 +78,8 @@
                 <button id="nav-page2" onclick="switchPage('page2')" class="px-4 py-2 rounded-full font-bold transition-all text-gray-500 hover:bg-gray-100">
                     셀프 자세 평가
                 </button>
-            </div>
-            
-            <a href="http://pf.kakao.com/_nVSxdn/chat" target="_blank" class="hidden md:inline-block bg-[#3498DB] text-white px-6 py-2 rounded-full hover:bg-[#287BBF] transition shadow-lg">문의 하기</a>
+            </div>            
+            <button onclick="goToContact()" class="inline-block bg-[#3498DB] text-white px-6 py-2 rounded-full hover:bg-[#287BBF] transition shadow-lg">문의 하기</button>
         </div>
         
         <div class="md:hidden grid grid-cols-2 border-t border-gray-100 bg-white">
@@ -340,7 +339,7 @@
             </div>
         </section>
 
-        <section class="py-20 bg-gradient-to-br from-[#2C3E50] to-[#3498DB] text-white text-center">
+        <section id="Contact" class="py-20 bg-gradient-to-br from-[#2C3E50] to-[#3498DB] text-white text-center">
             <div class="container mx-auto px-6">
                 <h2 class="text-4xl font-bold mb-6" data-aos="fade-up">Re:Al P-스트레칭<br>건강한 변화를 시작하세요</h2>
                 <p class="text-xl opacity-90 mb-10 font-light" data-aos="fade-up" data-aos-delay="100">
@@ -465,19 +464,31 @@
                 </div>
             </section>
 
+            <section class="mb-12 bg-white rounded-2xl shadow-xl border-l-4 border-brand overflow-hidden" data-aos="fade-up">
+                <div class="p-6 bg-blue-50 border-b border-blue-100 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center font-bold shadow-sm">🎯</div>
+                    <h3 class="text-xl font-bold text-gray-800">나의 자세 평가 결과</h3>
+                </div>
+                <div class="p-6 text-center">
+                    <p class="text-gray-600 mb-4 text-lg">
+                        현재까지 <strong><span class="text-brand font-extrabold text-3xl" id="bodyCheckCount">0</span>개</strong>의 자세 불균형 항목이 체크되었습니다.
+                    </p>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <p class="text-sm font-medium text-gray-700">
+                            <strong>참고:</strong> 체크 개수가 5개 이상 시<br>전문가의 정확한 자세 분석 및 관리가 필요합니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
             <div class="text-center p-8 bg-brand rounded-3xl shadow-xl text-white" data-aos="zoom-in">
                 <h3 class="text-2xl font-bold mb-2">내 몸을 위한 확실한 선택</h3>
-                <p class="mb-6 text-blue-100">체크 리스트 결과가 고민되시나요? 전문가와 상담하세요.</p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <button onclick="alert('제출 기능은 준비 중입니다. 상담하기 버튼을 이용해주세요.')" class="bg-white text-brand font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition shadow-md">
-                        결과 제출하고 혜택 받기
-                    </button>
-                    <button id="mob-nav-page1" onclick="switchPage('page1')" target="_blank" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-800 transition shadow-md">
+                <div class="flex flex-col sm:flex-row justify-center gap-4">                    
+                    <button onclick="switchPage('page1')" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-800 transition shadow-md">
                         리:얼 P-스트레칭 살펴보기
-                    </a>
+                    </button>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -497,53 +508,79 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // 1. AOS 애니메이션 초기화 + 페이지 초기 설정 강제
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({
-                duration: 800,
-                once: true,
-                offset: 100
+        
+        // ===============================================
+        // 1. 셀프 평가 체크박스 개수 계산 및 표시 함수
+        // ===============================================
+        function calculateBodyCheckResult() {
+            const checkboxes = document.querySelectorAll('#page2 input[type="checkbox"]');
+            let checkedCount = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    checkedCount++;
+                }
             });
-            
-            // ⭐️ 수정된 로직: URL에서 'page' 파라미터 값을 읽어옵니다.
-            const urlParams = new URLSearchParams(window.location.search);
-            const targetPageId = urlParams.get('page'); // 'page1', 'page2', 'page3' 중 하나를 기대합니다.
-            
-            // URL 파라미터가 유효한 페이지 ID이고 해당 ID를 가진 요소가 있으면 해당 페이지로 이동
-            if (targetPageId && document.getElementById(targetPageId)) {
-                switchPage(targetPageId);
-            } else {
-                // 파라미터가 없거나 유효하지 않으면 기본값인 'page1'로 이동
-                switchPage('page1'); 
+            const resultElement = document.getElementById('bodyCheckCount');
+            if (resultElement) {
+                resultElement.textContent = checkedCount;
             }
-        });
+        }
 
-        // 2. 페이지 전환 함수
-        function switchPage(pageId) {
-            // 모든 페이지 숨기기
+        // ===============================================
+        // 2. 문의하기 버튼 클릭 시 Contact 섹션으로 이동 함수 (NEW)
+        // ===============================================
+        function goToContact() {
+            // Contact 섹션은 page1에 있으므로, page1로 전환하고 'Contact'으로 스크롤 요청
+            switchPage('page1', 'Contact'); 
+        }
+
+        // ===============================================
+        // 3. 페이지 전환 핵심 함수 (스크롤 로직 통합)
+        // ===============================================
+        function switchPage(pageId, targetSectionId = null) {
+            // 1. 모든 페이지 숨기기
             document.querySelectorAll('.page-content').forEach(page => {
                 page.classList.remove('active');
             });
-            
-            // 선택된 페이지 보이기
+
+            // 2. 선택된 페이지 보이기
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
                 targetPage.classList.add('active');
+
+                // 3. 스크롤 위치 설정 (최상단 또는 특정 섹션)
+                if (targetSectionId) {
+                    // 특정 섹션으로 스크롤하는 경우, 약간의 딜레이를 주어 페이지 전환 후 실행
+                    setTimeout(() => {
+                        const targetSection = document.getElementById(targetSectionId);
+                        if (targetSection) {
+                            targetSection.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'start' // 섹션을 화면 상단에 맞춤
+                            });
+                        } else {
+                            // targetSectionId를 못 찾으면 기본적으로 최상단으로 이동
+                            window.scrollTo(0, 0);
+                        }
+                    }, 100); 
+                } else {
+                    // targetSectionId가 없으면 최상단으로 이동
+                    window.scrollTo(0, 0);
+                }
             }
-            
-            // 탭 버튼 스타일 업데이트
+
+            // 4. 네비게이션 스타일 업데이트
             updateNavStyles(pageId);
             
-            // 스크롤 최상단으로 이동
-            window.scrollTo(0, 0);
-            
-            // 페이지 전환 후 AOS 애니메이션 다시 트리거 (선택 사항)
+            // 5. 페이지 전환 후 AOS 애니메이션 다시 트리거
             setTimeout(() => {
                 AOS.refresh();
-            }, 100);
+            }, 150);
         }
-
-        // 3. 네비게이션 버튼 스타일 업데이트 함수 (3개 페이지 지원)
+        
+        // ===============================================
+        // 4. 네비게이션 버튼 스타일 업데이트 함수
+        // ===============================================
         function updateNavStyles(activePageId) {
             const navElements = [
                 { id: 'page1', desktop: document.getElementById('nav-page1'), mobile: document.getElementById('mob-nav-page1') },
@@ -579,6 +616,38 @@
                 }
             });
         }
+        
+        // ===============================================
+        // 5. 초기화: 페이지 로드 시 실행 (가장 중요)
+        // ===============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+            
+            // 1. URL 파라미터 체크 및 초기 페이지 전환
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetPageId = urlParams.get('page');
+            
+            if (targetPageId && document.getElementById(targetPageId)) {
+                switchPage(targetPageId);
+            } else {
+                // 기본 페이지는 page1으로 설정
+                switchPage('page1'); 
+            }
+            
+            // 2. Page 2 체크박스 이벤트 리스너 연결 및 초기 계산 실행
+            const bodyCheckPage = document.getElementById('page2');
+            if (bodyCheckPage) {
+                const checkboxes = bodyCheckPage.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(cb => {
+                    cb.addEventListener('change', calculateBodyCheckResult);
+                });
+                calculateBodyCheckResult(); // 초기 값 설정
+            }
+        });
     </script>
 </body>
 </html>
