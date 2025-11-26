@@ -65,34 +65,44 @@
 </head>
 <body class="bg-gray-50 text-[#2C3E50]">
 
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm" id="navbar">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div onclick="switchPage('page1')" class="text-2xl font-bold text-[#2C3E50] flex items-center gap-2 cursor-pointer">
-                <i class="fa-solid fa-tree text-[#3498DB]"></i> 힐링트리
-            </div>
-            
-            <div class="hidden md:flex space-x-4 font-medium text-gray-600">
-                <button id="nav-page1" onclick="switchPage('page1')" class="px-4 py-2 rounded-full font-bold transition-all text-gray-500 hover:bg-gray-100">
+    <nav class="hidden md:block sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-orange-100">    
+        <div class="container mx-auto px-4 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <div onclick="switchPage('page1')" class="flex items-center gap-2 cursor-pointer group">                    
+                    <span class="text-2xl font-black text-brand">Re:Al</span>
+                    <span class="text-xs text-gray-500 tracking-widest border-l border-gray-300 pl-2 ml-2">P-스트레칭 스튜디오</span>
+                </div>
+
+                <div class="flex space-x-1 text-sm font-medium text-gray-600">
+                    <button id="nav-page1" onclick="switchPage('page1')" class="px-4 py-2 rounded-full font-bold transition-all text-gray-500 hover:bg-gray-100">
                     프로그램 소개
-                </button>
-                <button id="nav-page2" onclick="switchPage('page2')" class="px-4 py-2 rounded-full font-bold transition-all text-gray-500 hover:bg-gray-100">
+                    </button>
+                    <button id="nav-page2" onclick="switchPage('page2')" class="px-4 py-2 rounded-full font-bold transition-all text-gray-500 hover:bg-gray-100">
                     셀프 자세 평가
-                </button>
-            </div>            
-            <button onclick="goToContact()" class="inline-block bg-[#3498DB] text-white px-6 py-2 rounded-full hover:bg-[#287BBF] transition shadow-lg">문의 하기</button>
-        </div>
-        
-        <div class="md:hidden grid grid-cols-2 border-t border-gray-100 bg-white">
-            <button id="mob-nav-page1" onclick="switchPage('page1')" class="py-3 text-sm font-bold text-gray-400 transition-all">프로그램 소개</button>
-            <button id="mob-nav-page2" onclick="switchPage('page2')" class="py-3 text-sm font-bold text-gray-400 transition-all">셀프 자세 평가</button>
+                    </button>
+                </div>
+            <button onclick="goToContact()" class="inline-block bg-[#3498DB] text-white px-6 py-2 rounded-full hover:bg-[#287BBF] transition shadow-lg">문의 하기</button>    
+            </div>
         </div>
     </nav>
 
-    <div id="page1" class="page-content active pt-20"> 
-        
+    <div id="page1" class="page-content active"> 
+        <div class="md:hidden bg-white shadow-md sticky top-0 z-30">
+            <div class="pt-4 pb-4 text-center">
+                <img src="https://breezefeel.github.io/p-stretching/P-스트레칭 로고.png" alt="P-스트레칭" class="mx-auto h-36 w-auto">
+            </div>
+            <nav class="py-3 border-t border-orange-50">
+                <ul class="flex justify-around text-base font-medium text-gray-700">
+                    <li><button onclick="switchPage('page1')" id="mobile-nav-page1" class="text-brand border-b-2 border-brand pb-1">프로그램 소개</button></li>
+                    <li><button onclick="switchPage('page2')" id="mobile-nav-page2" class="hover:text-brand pb-1">셀프 자세 평가</button></li>                    
+                </ul>
+            </nav>
+        </div>
+
         <header class="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20 md:py-28 overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <img src="https://breezefeel.github.io/p-stretching/11.jpg" alt="Stretching Background" class="w-full h-full object-cover brightness-[0.5] grayscale-[20%]">
+                <img src="https://breezefeel.github.io/p-stretching/11.jpg" alt="P-스트레칭" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gray-600/50"></div> 
             </div>
 
             <div class="container mx-auto px-6 relative z-10 text-center text-white" data-aos="fade-up">
@@ -357,8 +367,20 @@
             </div>
         </section>
     </div>
-    <div id="page2" class="page-content pt-20"> 
-        
+    <div id="page2" class="page-content">
+
+        <div class="md:hidden bg-white shadow-md sticky top-0 z-30">
+            <div class="pt-4 pb-4 text-center">
+                <img src="https://breezefeel.github.io/p-stretching/P-스트레칭 로고.png" alt="P-스트레칭" class="mx-auto h-36 w-auto">
+            </div>
+            <nav class="py-3 border-t border-orange-50">
+                <ul class="flex justify-around text-base font-medium text-gray-700">
+                    <li><button onclick="switchPage('page1')" id="mobile-nav-page1" class="hover:text-brand pb-1">프로그램 소개</button></li>
+                    <li><button onclick="switchPage('page2')" id="mobile-nav-page2" class="text-brand border-b-2 border-brand pb-1">셀프 자세 평가</button></li>                    
+                </ul>
+            </nav>
+        </div>
+
         <header class="bg-white py-12 text-center border-b border-gray-200">
             <div class="container mx-auto px-4">
                 <span class="text-brand font-bold tracking-widest text-sm uppercase mb-2 block">Self-Check List</span>
@@ -582,36 +604,42 @@
         // 4. 네비게이션 버튼 스타일 업데이트 함수
         // ===============================================
         function updateNavStyles(activePageId) {
+            // 1. 네비게이션 요소 ID 정의 (Page 3 제거, 모바일 ID를 'mobile-nav-pageX'로 수정)
             const navElements = [
-                { id: 'page1', desktop: document.getElementById('nav-page1'), mobile: document.getElementById('mob-nav-page1') },
-                { id: 'page2', desktop: document.getElementById('nav-page2'), mobile: document.getElementById('mob-nav-page2') },
-                { id: 'page3', desktop: document.getElementById('nav-page3'), mobile: document.getElementById('mob-nav-page3') }
+                { id: 'page1', desktop: document.getElementById('nav-page1'), mobile: document.getElementById('mobile-nav-page1') },
+                { id: 'page2', desktop: document.getElementById('nav-page2'), mobile: document.getElementById('mobile-nav-page2') }
             ];
 
             navElements.forEach(item => {
                 const isActive = item.id === activePageId;
-                const activeClasses = ['bg-[#3498DB]', 'text-white', 'shadow-md'];
-                const inactiveClasses = ['text-gray-500', 'hover:bg-gray-100'];
-                const mActiveClasses = ['text-[#3498DB]', 'border-b-2', 'border-[#3498DB]', 'bg-blue-50'];
-                const mInactiveClasses = ['text-gray-400', 'border-transparent'];
+                
+                // 데스크톱 스타일 (브랜드 컬러: #5185D4 사용)
+                const desktopActiveClasses = ['bg-brand', 'text-white', 'shadow-md'];
+                const desktopInactiveClasses = ['text-gray-500', 'hover:bg-gray-100'];
 
+                // 모바일 스타일 (브랜드 컬러: #5185D4 사용, 탭 하단에 선 표시)
+                const mobileActiveClasses = ['text-brand', 'border-b-2', 'border-brand'];
+                const mobileInactiveClasses = ['text-gray-500', 'border-transparent', 'hover:text-brand'];
+
+                // 2. 데스크톱 스타일 적용
                 if (item.desktop) {
                     if (isActive) {
-                        item.desktop.classList.add(...activeClasses);
-                        item.desktop.classList.remove(...inactiveClasses);
+                        item.desktop.classList.add(...desktopActiveClasses);
+                        item.desktop.classList.remove(...desktopInactiveClasses);
                     } else {
-                        item.desktop.classList.add(...inactiveClasses);
-                        item.desktop.classList.remove(...activeClasses);
+                        item.desktop.classList.add(...desktopInactiveClasses);
+                        item.desktop.classList.remove(...desktopActiveClasses);
                     }
                 }
 
+                // 3. 모바일 스타일 적용
                 if (item.mobile) {
                     if (isActive) {
-                        item.mobile.classList.add(...mActiveClasses);
-                        item.mobile.classList.remove(...mInactiveClasses);
+                        item.mobile.classList.add(...mobileActiveClasses);
+                        item.mobile.classList.remove(...mobileInactiveClasses);
                     } else {
-                        item.mobile.classList.add(...mInactiveClasses);
-                        item.mobile.classList.remove(...mActiveClasses);
+                        item.mobile.classList.add(...mobileInactiveClasses);
+                        item.mobile.classList.remove(...mobileActiveClasses);
                     }
                 }
             });
@@ -651,14 +679,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
