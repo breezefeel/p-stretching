@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Re:Al 재활운동 | 힐링트리 통합 운동 프로그램</title>
+    <title>Re:Al Movement | 힐링트리 움직임 스튜디오</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -61,6 +61,36 @@
         .page-content { display: none; animation: fadeIn 0.4s ease-out; }
         .page-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* 세 단계 흐름 도식 */
+        .par-rail {
+            display: flex; flex-wrap: wrap; align-items: stretch; justify-content: center;
+            gap: 0.75rem; max-width: 56rem; margin: 0 auto;
+        }
+        .par-step-card {
+            flex: 1 1 140px; min-width: 130px; max-width: 220px;
+            background: #fff; border-radius: 1rem; padding: 1rem 0.85rem;
+            border: 1px solid #e5e7eb; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.06);
+            text-align: center; position: relative;
+        }
+        .par-step-card .par-badge {
+            display: inline-block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.06em;
+            padding: 0.2rem 0.5rem; border-radius: 999px; margin-bottom: 0.35rem;
+        }
+        .par-p .par-badge { background: #dbeafe; color: #1d4ed8; }
+        .par-aa .par-badge { background: #e0f2fe; color: #0369a1; }
+        .par-a .par-badge { background: #d1fae5; color: #047857; }
+        .par-r .par-badge { background: #ede9fe; color: #5b21b6; }
+        .par-step-card h3 { font-size: 0.95rem; font-weight: 800; color: #1e293b; margin: 0 0 0.35rem; }
+        .par-step-card p { font-size: 0.8rem; color: #64748b; line-height: 1.55; margin: 0; }
+        .par-connector {
+            display: none; align-items: center; justify-content: center; color: #94a3b8;
+            font-size: 1.25rem; font-weight: 700; flex: 0 0 auto; padding: 0 0.15rem;
+        }
+        @media (min-width: 768px) {
+            .par-rail { flex-wrap: nowrap; gap: 0.35rem; }
+            .par-connector { display: flex; }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-[#2C3E50]">
@@ -70,12 +100,12 @@
             <div class="flex justify-between items-center">
                 <div onclick="switchPage('page1')" class="flex items-center gap-2 cursor-pointer group">                    
                     <span class="text-2xl font-black text-brand">Re:Al</span>
-                    <span class="text-xs text-gray-500 tracking-widest border-l border-gray-300 pl-2 ml-2">재활운동 스튜디오</span>
+                    <span class="text-xs text-gray-500 tracking-widest border-l border-gray-300 pl-2 ml-2">움직임 스튜디오</span>
                 </div>
 
                 <div class="flex space-x-1 text-sm font-medium text-gray-600">
                     <button id="nav-page1" onclick="switchPage('page1')" class="px-4 py-2 rounded-full font-bold transition-all text-gray-500 hover:bg-gray-100">
-                    P-스트레칭 소개
+                    프로그램 소개
                     </button>
                     <button id="nav-page2" onclick="switchPage('page2')" class="px-4 py-2 rounded-full font-bold transition-all text-gray-500 hover:bg-gray-100">
                     셀프 자세 평가
@@ -89,11 +119,11 @@
     <div id="page1" class="page-content active"> 
         <div class="md:hidden bg-white shadow-md sticky top-0 z-30">
             <div class="pt-4 pb-4 text-center">
-                <img src="https://breezefeel.github.io/p-stretching/재활운동 로고.png" alt="P-스트레칭" class="mx-auto h-36 w-auto">
+                <img src="https://breezefeel.github.io/p-stretching/재활운동 로고.png" alt="Re:Al Movement" class="mx-auto h-36 w-auto">
             </div>
             <nav class="py-3 border-t border-orange-50">
                 <ul class="flex justify-around text-base font-medium text-gray-700">
-                    <li><button onclick="switchPage('page1')" id="mobile-nav-page1" class="text-brand border-b-2 border-brand pb-1">P-스트레칭 소개</button></li>
+                    <li><button onclick="switchPage('page1')" id="mobile-nav-page1" class="text-brand border-b-2 border-brand pb-1">프로그램 소개</button></li>
                     <li><button onclick="switchPage('page2')" id="mobile-nav-page2" class="hover:text-brand pb-1">셀프 자세 평가</button></li>
                     <li><button onclick="goToContact()" class="hover:text-brand pb-1">문의/신청</button></li>
                 </ul>
@@ -102,21 +132,24 @@
 
         <header class="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20 md:py-28 overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <img src="https://breezefeel.github.io/p-stretching/11.jpg" alt="P-스트레칭" class="w-full h-full object-cover">
+                <img src="https://breezefeel.github.io/p-stretching/11.jpg" alt="Re:Al Movement" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gray-600/50"></div> 
             </div>
 
             <div class="container mx-auto px-6 relative z-10 text-center text-white" data-aos="fade-up">
-                <span class="inline-block py-1 px-3 border border-white/50 rounded-full text-sm mb-4 backdrop-blur-sm">힐링트리 통합 운동 프로그램</span>
+                <span class="inline-block py-1 px-3 border border-white/50 rounded-full text-sm mb-4 backdrop-blur-sm">힐링트리 움직임 스튜디오</span>
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                    Re:Al P-스트레칭
+                    Re:Al Movement
                 </h1>
-                <p class="text-xl md:text-2xl font-light opacity-90 mb-8 leading-relaxed">
-                    스트레칭 대신 해드립니다<br>
-                    진짜 제대로요. 리:얼 P-스트레칭
+                <p class="text-xl md:text-2xl font-light opacity-95 mb-6 leading-relaxed max-w-lg mx-auto">
+                    <strong class="font-semibold">풀어 주기</strong>에서 시작해<br>
+                    <strong class="font-semibold">스스로 움직이기</strong>, 그다음 <strong class="font-semibold">일상으로</strong> 이어집니다.
+                </p>
+                <p class="text-base md:text-lg opacity-85 mb-8 max-w-xl mx-auto leading-relaxed">
+                    전문가가 옆에서 도와주는 스트레칭으로 몸을 먼저 열고, 괜찮아지는 만큼 앉기·서기·걷기처럼 쓰는 동작까지 차근차근 맞춰 갑니다.
                 </p>
                 <div class="flex justify-center gap-4">
-                    <button id="mob-nav-page2" onclick="switchPage('page2')" class="bg-white text-[#2C3E50] px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-lg">내 몸 상태, 어떨까?</a>
+                    <button id="mob-nav-page2" onclick="switchPage('page2')" class="bg-white text-[#2C3E50] px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition shadow-lg">내 몸 상태, 어떨까?</button>
                 </div>
             </div>
         </header>
@@ -124,56 +157,87 @@
         <section id="intro" class="py-20">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-4">P-스트레칭 소개</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-4">Re:Al Movement 소개</h2>
                     <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-                        뻣뻣해진 몸을 단계별로 풀어가는 재활운동으로,<br>
-                        근골격계 건강을 <span class="font-bold text-[#3498DB]">리:얼</span> 되찾아 드립니다.
+                        대표 프로그램은 <span class="font-bold text-[#3498DB]">Re:Al Movement</span>입니다.<br>
+                        처음엔 <strong>전문가와 함께 풀기</strong>, 이후엔 <strong>혼자도 할 수 있는 움직임</strong>과 <strong>일상에서 쓰는 동작</strong>으로 넓혀 갑니다.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="hover-card bg-white p-8 rounded-3xl shadow-lg text-center border border-gray-100" data-aos="fade-up" data-aos-delay="100">
                         <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-6 text-[#3498DB]">
-                            <i class="fa-solid fa-cubes"></i>
+                            <i class="fa-solid fa-layer-group"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">통합적 접근</h3>
-                        <p class="text-gray-600">P-스트레칭부터 PAR 시스템에 따라, 생활습관 및 자세교정까지 연속적인 프로그램을 제공합니다.</p>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">한 줄기로 이어져요</h3>
+                        <p class="text-gray-600">단계를 건너뛰지 않고, 그날 몸이 허용하는 만큼만 천천히 올립니다.</p>
                     </div>
                     <div class="hover-card bg-white p-8 rounded-3xl shadow-lg text-center border border-gray-100" data-aos="fade-up" data-aos-delay="200">
                         <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-6 text-[#3498DB]">
                             <i class="fa-solid fa-user-gear"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-800 mb-3">개인 맞춤형</h3>
-                        <p class="text-gray-600">통증 유무와 가동범위 평가를 통해 개인별 최적화된 맞춤 프로그램을 제공합니다.</p>
+                        <p class="text-gray-600">매번 짧게 상태를 보고, 오늘은 어디까지 할지 함께 정합니다.</p>
                     </div>
                     <div class="hover-card bg-white p-8 rounded-3xl shadow-lg text-center border border-gray-100" data-aos="fade-up" data-aos-delay="300">
                         <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-6 text-[#3498DB]">
                             <i class="fa-solid fa-face-smile"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-800 mb-3">Body + Face</h3>
-                        <p class="text-gray-600">신체 스트레칭과 얼굴 운동을 동시에 진행하는 통합적 웰니스 솔루션입니다.</p>
+                        <p class="text-gray-600">신체 움직임과 얼굴·호흡 라인을 함께 다루는 <strong>리:얼핏 페이스</strong> 옵션으로, 한 세션에서 균형을 넓게 잡을 수 있습니다.</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="par-flow" class="py-14 bg-white border-y border-gray-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-8" data-aos="fade-up">
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#2C3E50] mb-2">세 단계만 기억하세요</h2>
+                    <p class="text-gray-600 text-sm md:text-base max-w-md mx-auto">용어는 줄이고, 순서만 가볍게 적어 두었어요.</p>
+                </div>
+                <div class="par-rail" data-aos="fade-up" data-aos-delay="80">
+                    <div class="par-step-card par-p">
+                        <span class="par-badge">①</span>
+                        <h3>함께 풀기</h3>
+                        <p>누워서 전문가가 도와주는 스트레칭으로, 뻣뻣한 곳을 부담 없이 먼저 엽니다.</p>
+                    </div>
+                    <div class="par-connector" aria-hidden="true">→</div>
+                    <div class="par-step-card par-aa">
+                        <span class="par-badge">②</span>
+                        <h3>스스로 움직이기</h3>
+                        <p>조금씩 본인 힘을 써서 관절이 다시 움직이도록 연습합니다.</p>
+                    </div>
+                    <div class="par-connector" aria-hidden="true">→</div>
+                    <div class="par-step-card par-a">
+                        <span class="par-badge">③</span>
+                        <h3>일상으로</h3>
+                        <p>앉기·서기·걷기와 필요한 동작까지, 실제로 쓰는 패턴으로 마무리합니다.</p>
+                    </div>
+                </div>
+                <p class="text-center text-xs text-gray-500 mt-6 max-w-lg mx-auto" data-aos="fade-up">
+                    사람마다 속도는 달라요. 아플 땐 ①에 더 머물고, 나아지면 ②·③으로 자연스럽게 넓혀 갑니다.
+                </p>
             </div>
         </section>
         
         <section id="video-intro" class="py-12 md:py-16 bg-[#2C3E50]">
             <div class="container mx-auto px-6 max-w-4xl" data-aos="fade-up">
                 <div class="text-center mb-8">
-                    <h3 class="text-2xl font-bold text-white mb-2">리:얼 P-스트레칭 실제 시연 영상</h3>
-                    <p class="text-gray-300">영상을 통해 전문가의 패시브 스트레칭을 확인해보세요.</p>
+                    <h3 class="text-2xl font-bold text-white mb-2">시연 영상</h3>
+                    <p class="text-gray-300">전문가가 옆에서 도와주는 <strong class="text-white">풀어 주기</strong> 구간이에요.</p>
                 </div>
                 
                 <div class="relative w-full overflow-hidden rounded-xl shadow-2xl group cursor-pointer" style="padding-top: 56.25%;">
                     <a 
                         href="https://youtube.com/shorts/ZTWj1nR1868" 
                         target="_blank" 
-                        title="리:얼 P-스트레칭 실제 시연 영상 - 새 탭에서 열기"
+                        title="Re:Al Movement 시연 영상 - 새 탭에서 열기"
                         class="absolute top-0 left-0 w-full h-full"
                     >
                         <img
                             src="https://breezefeel.github.io/p-stretching/썸네일.jpg"
-                            alt="리:얼 P-스트레칭 영상 썸네일"
+                            alt="Re:Al Movement 시연 썸네일"
                             class="w-full h-full object-cover transition duration-300 group-hover:scale-[1.03]"
                         >
                         <div class="absolute inset-0 flex items-center justify-center bg-black/30 transition duration-300 group-hover:bg-black/40">
@@ -191,52 +255,51 @@
         <section id="sequence" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-4">프로그램 시퀀스</h2>
-                    <p class="text-gray-600">체계적인 3단계 Program Flow</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-4">수업 속 장면</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">아래는 실제 수업에서 자주 보이는 흐름이에요. <strong>풀기 → 이어 붙이기 → 일상으로</strong></p>
                 </div>
 
                 <div class="max-w-4xl mx-auto space-y-8">
                     <div class="relative flex flex-col md:flex-row gap-6 items-center md:items-start" data-aos="fade-up">
-                        <div class="flex-shrink-0 w-12 h-12 bg-[#3498DB] text-white rounded-full flex items-center justify-center font-bold text-xl z-10">1</div>
+                        <div class="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg z-10 ring-4 ring-blue-100">1</div>
                         <div class="absolute left-6 top-12 bottom-[-32px] w-0.5 bg-gray-200 hidden md:block"></div>
                         
                         <div class="bg-white p-6 rounded-2xl shadow-md flex-1 md:flex-row flex flex-col items-center gap-6">
-                            <img src="https://breezefeel.github.io/p-stretching/22.jpg" alt="누운 자세 스트레칭" class="w-full md:w-1/3 h-48 object-cover rounded-xl shadow-inner">
+                            <img src="https://breezefeel.github.io/p-stretching/22.jpg" alt="누운 자세 패시브 스트레칭" class="w-full md:w-1/3 h-48 object-cover rounded-xl shadow-inner">
                             <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-2 mt-4 md:mt-0">누운 자세 기본 P-스트레칭</h3>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 mt-4 md:mt-0">누워서 천천히 풀기</h3>
                                 <p class="text-gray-600">
-                                    상체의 주요 관절인 <strong>어깨 관절과 척추</strong>를 중심으로 편안한 누운 자세에서 진행합니다.<br><br>
-                                    하체의 주요 관절인 <strong>고관절</strong>을 중심으로 골반과 다리의 유연성을 길러냅니다.
+                                    어깨·허리·골반 등 <strong>큰 덩어리</strong>부터 부담을 줄이고 시작합니다.
                                 </p>
                             </div>
                         </div>
                     </div>
 
                     <div class="relative flex flex-col md:flex-row gap-6 items-center md:items-start" data-aos="fade-up">
-                        <div class="flex-shrink-0 w-12 h-12 bg-[#3498DB] text-white rounded-full flex items-center justify-center font-bold text-xl z-10">2</div>
+                        <div class="flex-shrink-0 w-12 h-12 bg-sky-600 text-white rounded-full flex items-center justify-center font-bold text-lg z-10 ring-4 ring-sky-100">2</div>
                          <div class="absolute left-6 top-12 bottom-[-32px] w-0.5 bg-gray-200 hidden md:block"></div>
 
                         <div class="bg-white p-6 rounded-2xl shadow-md flex-1 md:flex-row-reverse flex flex-col items-center gap-6">
-                            <img src="https://breezefeel.github.io/p-stretching/33.jpg" alt="전신 스트레칭" class="w-full md:w-1/3 h-48 object-cover rounded-xl shadow-inner">
+                            <img src="https://breezefeel.github.io/p-stretching/33.jpg" alt="전신 경선 스트레칭" class="w-full md:w-1/3 h-48 object-cover rounded-xl shadow-inner">
                             <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-2 mt-4 md:mt-0">전후측 + 나선 경선 스트레칭</h3>
-                                <p class="text-gray-600 mb-4">근막 경선을 따라 전신을 연결하는 통합 스트레칭을 수행합니다.</p>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 mt-4 md:mt-0">몸을 한 줄로 이어 주기</h3>
+                                <p class="text-gray-600 mb-4">몸의 라인을 따라 <strong>앞·뒤·옆이 한 줄로</strong> 이어지도록 풀어 줍니다.</p>
                                 <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                                    <strong class="text-[#2C3E50]">🎯 리:얼핏 페이스 통합</strong>
-                                    <p class="text-sm text-gray-700 mt-1">이 단계에서 얼굴 스트레칭, 혀 운동, 눈 운동, 두피 스트레칭을 동시에 진행하여 Body + Face 통합 운동을 진행합니다.</p>
+                                    <strong class="text-[#2C3E50]">🎯 리:얼핏 페이스</strong>
+                                    <p class="text-sm text-gray-700 mt-1">원하시면 같은 흐름 안에서 얼굴·호흡 라인을 함께 다루는 Body + Face 통합 옵션을 진행할 수 있습니다.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="relative flex flex-col md:flex-row gap-6 items-center md:items-start" data-aos="fade-up">
-                        <div class="flex-shrink-0 w-12 h-12 bg-[#3498DB] text-white rounded-full flex items-center justify-center font-bold text-xl z-10">3</div>
+                        <div class="flex-shrink-0 w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold text-lg z-10 ring-4 ring-emerald-100">3</div>
                         
                         <div class="bg-white p-6 rounded-2xl shadow-md flex-1 md:flex-row flex flex-col items-center gap-6">
-                            <img src="https://breezefeel.github.io/p-stretching/44.JPEG" alt="자세 교정" class="w-full md:w-1/3 h-48 object-cover rounded-xl shadow-inner">
+                            <img src="https://breezefeel.github.io/p-stretching/44.JPEG" alt="자세 및 기능운동" class="w-full md:w-1/3 h-48 object-cover rounded-xl shadow-inner">
                             <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-2 mt-4 md:mt-0">생활습관 및 자세교정</h3>
-                                <p class="text-gray-600">바르게 앉는 자세, 서는 자세, 그리고 걸음걸이까지 근골격계 통증의 근본적인 원인까지 바로 잡아갑니다.</p>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 mt-4 md:mt-0">일상 자세·쓰는 동작까지</h3>
+                                <p class="text-gray-600">앉기·서기·걷기를 바로잡고, 집·직장에서 반복하는 동작에 맞춰 <strong>힘과 균형</strong>을 붙여 갑니다.</p>
                             </div>
                         </div>
                     </div>
@@ -261,8 +324,8 @@
                                 <h4 class="font-bold text-lg mb-2">💪 Body Program</h4>
                                 <ul class="text-sm text-gray-600 space-y-1">
                                     <li>바르게 앉은 자세</li>
-                                    <li>전후측 경선 스트레칭</li>
-                                    <li>나선 경선 스트레칭</li>
+                                    <li>앞·뒤로 이어지는 스트레칭</li>
+                                    <li>옆·대각선으로 이어지는 스트레칭</li>
                                 </ul>
                                 <img src="https://breezefeel.github.io/p-stretching/222.avif" alt="Body Program" class="w-full h-32 object-cover rounded-lg mt-4">
                             </div>
@@ -274,66 +337,26 @@
 
         <section id="flow" class="py-20 bg-gray-100">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-4">단계별 진행 흐름</h2>
-                    <p class="text-gray-600">개인 상태에 따른 맞춤형 로드맵</p>
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-4">그날의 몸에 맞춘 분기</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">같은 순서라도, <strong>오늘 몸이 허용하는 속도</strong>만 달라집니다.</p>
                 </div>
 
-                <div class="max-w-5xl mx-auto">
-                    <div class="flex justify-center mb-8" data-aos="fade-down">
-                        <div class="bg-[#2C3E50] text-white p-6 rounded-xl text-center w-full md:w-80 shadow-lg relative z-10">
-                            <strong class="text-lg block mb-1">Level 1: 기본 시퀀스</strong>
-                            <span class="text-sm opacity-90">P-스트레칭 (상체/하체)</span>
-                        </div>
+                <div class="max-w-3xl mx-auto mb-10 bg-white rounded-2xl shadow-md border border-gray-200 p-6 text-center" data-aos="fade-up">
+                    <strong class="text-lg text-[#2C3E50]">매번 짧게 체크</strong>
+                    <p class="text-sm text-gray-600 mt-2 mb-0">어디가 불편한지, 움직임이 얼마나 나오는지 본 뒤 그날 수업 내용을 정해요.</p>
+                </div>
+
+                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-red-50 p-6 rounded-2xl border border-red-100" data-aos="fade-right">
+                        <div class="inline-block px-3 py-1 bg-red-200 text-red-800 rounded-full text-xs font-bold mb-3">아플 때</div>
+                        <h4 class="font-bold text-gray-800 mb-2">풀기에 더 오래 머물러요</h4>
+                        <p class="text-sm text-gray-700 leading-relaxed">무리하지 않고 편해질 때까지 천천히요. 필요하면 다른 치료와 병행할 수도 있어요.</p>
                     </div>
-
-                    <div class="flex justify-center mb-8 text-[#2C3E50] text-2xl"><i class="fa-solid fa-arrow-down"></i></div>
-
-                    <div class="flex justify-center mb-12" data-aos="fade-up">
-                        <div class="bg-white border-2 border-[#2C3E50] text-[#2C3E50] p-6 rounded-xl text-center w-full md:w-80 shadow-md z-10 relative">
-                            <strong class="text-lg block mb-1">평가</strong>
-                            <span class="text-sm text-gray-600">통증 여부 + 가동범위 체크</span>                        
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 relative mb-12">
-                        
-                        <div class="bg-red-50 p-6 rounded-2xl border border-red-100 text-center" data-aos="fade-right">
-                            <div class="inline-block px-3 py-1 bg-red-200 text-red-800 rounded-full text-xs font-bold mb-4">통증 있음</div>
-                            <h4 class="font-bold text-gray-800 mb-2">Level 2: 셀프 근막 이완</h4>
-                            <p class="text-sm text-gray-600 mb-4">Self Myofascial Release<br>(or 도수치료)</p>                        
-                            <div class="text-red-400 text-xl my-2">↓</div>
-                            <div class="text-sm font-medium text-gray-700 bg-white p-2 rounded-lg shadow-sm">재평가 후 Passive 복귀</div>
-                        </div>
-
-                        <div class="bg-green-50 p-6 rounded-2xl border border-green-100 text-center" data-aos="fade-left">
-                            <div class="inline-block px-3 py-1 bg-green-200 text-green-800 rounded-full text-xs font-bold mb-4">통증 없음</div>
-                            <h4 class="font-bold text-gray-800 mb-2">Level 3: 단계별 운동</h4>
-                                                    
-                            <div class="border-t border-green-200 my-4 pt-4">
-                                <p class="text-sm font-bold text-gray-700 mb-2">가동범위(ROM) 체크</p>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div class="bg-white p-3 rounded-lg shadow-sm">
-                                        <span class="block text-xs text-orange-500 font-bold">저하 시</span>
-                                        <span class="text-xs">Assisted Active<br>(3단계 적용)</span>
-                                    </div>
-                                    <div class="bg-white p-3 rounded-lg shadow-sm">
-                                        <span class="block text-xs text-green-600 font-bold">정상 시</span>
-                                        <span class="text-xs">Active Exercise<br>(생활습관 및 자세교정)</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="text-sm text-gray-600 mb-4"><strong>Level 4: 리:얼핏 페이스</strong><br>얼굴/신체 통합 운동 적용</p>                        
-                        </div>
-                    </div>
-
-                    <div class="flex justify-center mb-8 text-[#2C3E50] text-2xl"><i class="fa-solid fa-arrow-down"></i></div>
-
-                    <div class="flex justify-center" data-aos="fade-up">
-                        <div class="bg-gradient-to-r from-[#2C3E50] to-[#3498DB] text-white p-8 rounded-2xl text-center w-full shadow-xl">
-                            <strong class="text-xl block mb-2">Level 5: 최종 단계</strong>
-                            <span class="opacity-90">경선별 기능 운동 + Resistive Exercise</span>                        
-                        </div>
+                    <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100" data-aos="fade-left">
+                        <div class="inline-block px-3 py-1 bg-emerald-200 text-emerald-800 rounded-full text-xs font-bold mb-3">괜찮을 때</div>
+                        <h4 class="font-bold text-gray-800 mb-2">스스로·일상 쪽으로 넓혀요</h4>
+                        <p class="text-sm text-gray-700 leading-relaxed">움직임이 잘 나오면 앉기·서기·걷기와 쓰는 동작 연습 비중을 조금씩 늘립니다.</p>
                     </div>
                 </div>
             </div>
@@ -342,8 +365,8 @@
         <section id="features" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-4">리:얼 P-스트레칭 특징</h2>
-                    <p class="text-gray-600">차별화된 시스템으로 더 나은 변화를 만듭니다.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-4">Re:Al Movement 특징</h2>
+                    <p class="text-gray-600">풀기 → 스스로 → 일상으로, 한 줄기로 이어집니다.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -351,10 +374,10 @@
                         <h4 class="text-xl font-bold text-[#2C3E50] mb-4 flex items-center gap-2"><i class="fa-solid fa-chart-simple text-[#3498DB]"></i> 단계별 시스템</h4>
                         <p class="text-gray-600 mb-4">개인의 통증과 유연성 정도에 맞춰 안전하게 단계를 조절합니다.</p>
                         <ul class="space-y-3 text-gray-700">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 기본 P-스트레칭 진행</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 신체+얼굴 통합 운동</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 근막 경선별 맞춤 운동</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 생활습관 교정 단계</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 전문가와 함께 안전하게 시작</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 몸 상태에 맞춰 속도 조절</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 몸 라인을 이어 주는 연습</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 일상에서 쓰는 동작까지 연결</li>
                         </ul>
                     </div>
                     <div class="bg-gray-50 rounded-2xl p-8 border-l-4 border-[#3498DB]" data-aos="fade-up">
@@ -362,7 +385,7 @@
                         <p class="text-gray-600 mb-4">매 세션 통증과 가동범위를 평가하여 최적의 운동을 제공합니다.</p>
                         <ul class="space-y-3 text-gray-700">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 통증 여부 평가</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 가동범위(ROM) 체크</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 움직임 범위 체크</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 즉각적인 프로그램 조정</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#3498DB]"></i> 안전한 맞춤형 운동</li>
                         </ul>
@@ -383,7 +406,7 @@
 
         <section id="Contact" class="py-20 bg-gradient-to-br from-[#2C3E50] to-[#3498DB] text-white text-center">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold mb-6" data-aos="fade-up">Re:Al P-스트레칭<br>건강한 변화를 시작하세요</h2>
+                <h2 class="text-4xl font-bold mb-6" data-aos="fade-up">Re:Al Movement<br>건강한 변화를 시작하세요</h2>
                 <p class="text-xl opacity-90 mb-10 font-light" data-aos="fade-up" data-aos-delay="100">
                     전문가의 체계적인 가이드로 안전하고<br>효과적인 운동을 경험하실 수 있습니다.
                 </p>
@@ -406,7 +429,7 @@
 
         <div class="md:hidden bg-white shadow-md sticky top-0 z-30">
             <div class="pt-4 pb-4 text-center">
-                <img src="https://breezefeel.github.io/p-stretching/P-스트레칭 로고.png" alt="P-스트레칭" class="mx-auto h-36 w-auto">
+                <img src="https://breezefeel.github.io/p-stretching/P-스트레칭 로고.png" alt="Re:Al Movement" class="mx-auto h-36 w-auto">
             </div>
             <nav class="py-3 border-t border-orange-50">
                 <ul class="flex justify-around text-base font-medium text-gray-700">
@@ -543,7 +566,7 @@
                 <h3 class="text-2xl font-bold mb-2">내 몸을 위한 확실한 선택</h3>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">                    
                     <button onclick="switchPage('page1')" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-800 transition shadow-md">
-                        리:얼 P-스트레칭 살펴보기
+                        Re:Al Movement 살펴보기
                     </button>
                 </div>
             </div>
